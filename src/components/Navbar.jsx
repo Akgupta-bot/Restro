@@ -43,9 +43,11 @@ const Navbar = () => {
     <>
       {/* ================= NAVBAR ================= */}
       <nav
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 
-          
-        `}
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+          mobileOpen
+            ? 'bg-white/20 backdrop-blur-xl'
+            : 'bg-transparent backdrop-blur-none'
+        }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 

@@ -1,14 +1,54 @@
-import React from 'react'
+import Animated from "../components/Animated"
+
+const avatars = [
+    "/src/assets/user-1.jpeg",
+    "/src/assets/user-2.jpeg",
+    "/src/assets/user-3.jpeg",
+    "/src/assets/user-4.jpeg",
+]
 
 const HeroSection = () => {
   return (
-    <sections className="flex flex-col items-center min-h-screen justify-center bg-[url('/src/assets/heroBanner.png')] bg-cover bg-no-repeat px-4 pt-20">
+    <section className="flex min-h-screen flex-col items-center  justify-center bg-[url('/src/assets/heroBanner.png')] bg-cover bg-no-repeat px-4 pt-20">
 
-        <div>
+        <Animated y={-20} delay={0.2}>
             <p className="text-orange-600">WHERE FLAVOUR MEETS ELEGANCE</p>
-        </div>
+        </Animated>
 
-    </sections>
+        <Animated>
+            <h1 className="text-5xl md:text-6xl font-medium max-w-3xl text-center mt-5 font-urbanist text-balance">
+                Crafted for unforgettable dining moments
+            </h1>
+        </Animated>
+        <Animated delay={0.2}>
+            <p className="text-zinc-600 max-w-md text-center mt-3">Experience carefully curated menus, fresh local ingredients and impeccable service in a space made for every ceebration</p>
+        </Animated>
+
+        <Animated>
+            <a href="#booking-peocess" className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 mt-8 rounded-full block transition">
+                Book a table
+            </a>
+        </Animated>
+
+        <Animated className="flex items-center justify-center md:justify-start mt-9">
+            <div className="flex -space-x-3.5 pr-3">
+                {avatars.map((src, i) => (
+                    <img key={i} src={src} alt="guest" className="size-10 border-2 border-slate-50 rounded-full hover:-translate-y-px transition" />
+                ))}
+            </div>
+            <div>
+                <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                        <svg key={i} viewBox="0 0 24 24" className="size-3.5 fill-orange-500 text-orange-500" aria-label="star">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                    ))}
+                </div>
+                <p className="text-zinc-800">4.8/5 Rating - 10,000 reviews</p>
+            </div>
+        </Animated>
+
+    </section>
   )
 }
 
